@@ -1,0 +1,303 @@
+/***********************************
+               HEADER
+**************************************/
+
+/*Top-barre*/
+
+.top-barre {
+    p {
+        font-size: 1.2rem;
+    }
+    .far {
+        font-size: 2.5rem;
+    }
+    .fas {
+        font-size: 2.5rem;
+        padding: 0 4rem 0 2rem;
+    }
+    .fa-user {
+        font-size: 2.5rem;
+    }
+}
+
+/*Middle-barre*/
+
+.middle-barre {
+    align-items: center;
+}
+
+.burger {
+    top: 85px;
+    .fa {
+        font-size: 3rem;
+    }
+}
+
+.header-logo {
+    height: 100px;
+    padding-top: 1rem;
+    width: 140px;
+}
+
+.search-form {
+    margin: 0 auto;
+    input[type="text"] {
+        font-size: 1.2rem;
+        padding: 0.7rem;
+    }
+    button {
+        .fa {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+
+
+/***********************************
+               MAIN
+**************************************/
+
+// recherche rapide//
+.recherche-rapide {
+    align-items: center;
+    background: rgba(198,137,37,0.5);
+    color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 160px;
+    width: 100%;
+   
+}
+
+.selection-recherche {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    form{
+        padding-left:5px;
+    }        
+}
+
+.submit{
+    margin-left: 5px;
+} 
+.photo-presentation {
+    position: relative;
+    h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        top: 450px
+    }
+    .reseaux-sociaux-lateral {
+        top: 210px;
+        a {
+            img {
+                height: 35px;
+                width: 35px;
+            }
+        }
+    }
+}
+
+.mouse_scroll {
+    display: none;
+}
+
+.texte-presentation {
+    img {
+        height: 300px;
+        width: 75%;
+    }
+}
+
+.encart-photo {
+    background-attachment: fixed;
+    background-image: url('../images/photo-section-photo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    img {
+        display: none;
+    }
+}
+
+// suggestions//
+.suggestions {
+    padding: 10px 40px;
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+}
+
+.articles-suggestions {
+    padding: 30px 50px ;
+    img {
+        height: 260px;
+        width: 100%;
+    }
+}
+
+.infos-legende1 {
+    font-size: 1.1rem;
+    .title {
+        font-size: 1.4rem;
+    }
+}
+
+.infos-legende2 {
+    font-size: 1.3rem;
+}
+
+.legende2 {
+    font-size: 1.1rem;
+    .fas {
+        font-size: 1.5rem;
+    }
+}
+
+// section séjours //
+.sejours {
+    h1 {
+        font-size: 2rem;
+        margin: 50px 100px 20px;
+    }
+    h3 {
+        font-size: 1.7rem;
+        margin-top: 50px;
+    }
+
+    p{
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+}
+
+.pictureSlider {
+    margin: 20px 50px;
+}
+
+.section-pays {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            max-height: 185px;
+            overflow: hidden;
+            margin: 1rem 0;
+            position: relative;
+            img {
+                margin-top: -20%;
+            }
+        }
+    }
+}
+
+.brochure {
+    margin: 20px 60px 0 60px;
+    img {
+        height: 90px;
+        width: 90px;
+    }
+    a {
+        display: inline-block;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        color: #fff;
+        padding: 1.2rem;
+    }
+}
+
+// Section Communauté//
+.communaute {
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+.infos-communaute {
+    flex-direction: row;
+    padding: 20px 40px;
+}
+
+.infos-communaute article {
+    font-size: 1rem;
+    height: 180px;
+    width: 180px;
+    .title {
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+    }
+    a {
+        padding: 1rem 1.5rem;
+    }
+}
+
+// section témoignages //
+.temoignages {
+    margin: 30px $marge;
+    h3 {
+        font-size: 1.5rem
+    }
+    a {
+        margin-top: 40px;
+    }
+}
+
+.infos-temoignages {
+    img {
+        height: 110px;
+        width: 110px;
+    }
+}
+
+.twitt {
+    font-size: 1.1rem;
+}
+
+.joindre {
+    .text-joindre {
+        font-size: 1rem;
+        padding-left: 90px;
+    }
+    .title-joindre {
+        font-size: 1.1rem;
+    }
+    .link-rejoindre {
+        padding-left: 100px;
+    }
+}
+
+.concours {
+    font-size: 1.1rem;
+    a {
+        font-size: 1.1rem;
+    }
+    .fa-camera {
+        font-size: 4rem;
+    }
+}
+
+/***********************************
+               FOOTER
+**************************************/
+
+
+.elements-footer{
+    .footer-logo {
+        img{
+            height: 100px;
+         margin-left: 60px;
+        width: 140px;
+        }
+      
+    }
+}

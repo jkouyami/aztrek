@@ -1,0 +1,698 @@
+/***********************************
+               HEADER
+**************************************/
+
+.top-barre {
+    justify-content: space-between;
+    font-size: 1.1rem;
+    padding: 5px 50px;
+    p {
+        font-size: 1.1rem;
+    }
+    .fa-user {
+        display: none;
+    }
+}
+
+.icones-top-barres {
+    display: flex;
+    align-items: center;
+    .far {
+        display: none;
+    }
+    .fas {
+        display: none;
+    }
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+    .newsletter-submit {
+        align-items: center;
+        display: flex;
+    }
+    .newsletter-form {
+        display: flex;
+        background-color: #fff;
+        border-radius: 20px;
+        margin-left: 1rem;
+        padding: 0.5rem;
+        button {
+            border-radius: 10px;
+            font-size: 1rem;
+            color: $blue;
+        }
+        input[type="text"] {
+            border: none;
+            padding-left: 1rem;
+            &::placeholder {
+                font-size: 1rem;
+                color: $blue;
+            }
+        }
+    }
+}
+
+.brochure-header {
+    .lien-brochure-header {
+        display: inline-block;
+        color: #fff;
+    }
+}
+
+.compte {
+    background-color: #fff;
+    border-radius: 10px;
+    color: $blue;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1rem;
+    &:hover {
+        color: $orange;
+    }
+}
+
+/*Middle-barre*/
+
+.middle-barre {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+   
+    
+}
+
+.header-logo {
+    height: 110px;
+    margin: 0 100px 0 30px;
+    padding-top: 20px;
+    width: 130px;
+}
+
+.burger {
+    display: none;
+}
+
+//menu liste déroulante//
+.main-nav {
+    display: inline-block;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            float: left;
+            list-style-type: none;
+            position: relative;
+            text-transform: uppercase;
+            a {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: $blue;
+                text-decoration: none;
+                padding-right: 5.3rem;
+                &:hover {
+                    color: darken($color: $orange, $amount: 20%)
+                }
+            }
+            ul::after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+    }
+    .sous-menu {
+        display: none;
+        li {
+            background-color: rgba(63, 126, 192, 0.8);
+            border-bottom: 1px solid $gray;
+            padding: 10px 5px;
+            width: 200px;
+            a {
+                font-size: 1.2rem;
+                color: #fff;
+                width: 100px;
+                &:hover {
+                    color: darken($color: $blue, $amount: 20%)
+                }
+            }
+        }
+    }
+}
+
+.main-nav {
+    li:hover {
+        .sous-menu {
+            display: inline-block;
+            position: absolute;
+            top: 100%;
+            left: 0px;
+            padding: 0;
+            z-index: 100;
+        }
+    }
+}
+
+.search-form {
+    border: 1px solid $blue;
+    border-radius: 10px;
+    display: flex;
+    width: 250px;
+    input[type="text"] {
+        background: none;
+        border: 0;
+        color: $gray;
+        padding: 0.5rem;
+        &:focus {
+            outline-color: $blue; // pour changer la couleur du contour du lien "rechercher" lorsqu'on clique dessus ou qu'un utilisateur navigue en tabulation
+        }
+        &::placeholder {
+            color: $gray;
+        }
+    }
+    button {
+        border: 0;
+        background: none;
+        color: $blue;
+        cursor: pointer;
+        padding: 0 1rem;
+        .fa {
+            color: $blue;
+            font-size: 1.3rem; // pour la taille de la loupe
+            transition: 0.3s;
+        }
+        &:hover .fa {
+            transform: translateX(-4px);
+        }
+    }
+}
+
+// recherche rapide//
+.recherche-rapide {
+    font-size: 1.1rem;
+    padding: 0;
+    top: 170px;
+    width: 100%;   
+}
+
+.selection-recherche {
+
+    margin: 0 100px;
+
+    form{
+        
+        padding-left:20px;
+        
+       
+    }      
+}
+.select{
+    font-size: 1rem;
+  
+}
+.submit{
+    font-size: 4rem;
+    margin-left: 30px;
+}  
+
+/***********************************
+               MAIN
+**************************************/
+
+.photo-presentation {
+    h2 {
+        font-size: 3rem;
+        top: 300px;
+    }
+    .reseaux-sociaux-lateral {
+        top: 370px;
+        a {
+            img {
+                height: 45px;
+                width: 45px;
+            }
+        }
+    }
+}
+
+.mouse_scroll {
+    display: block;
+    height: 100px;
+   right: 730px;
+  position: absolute;
+  top: 700px;
+    width: 24px;
+}
+
+.m_scroll_arrows {
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    display: block;
+    height: 16px;
+    margin: 0 0 3px 4px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 16px;
+}
+
+.un {
+    margin-top: 1px;
+}
+
+.un,
+.deux,
+.trois {
+    -webkit-animation: mouse-scroll 1s infinite;
+    -moz-animation: mouse-scroll 1s infinite;
+}
+
+.un {
+    -webkit-animation-delay: .1s;
+    -moz-animation-delay: .1s;
+    -webkit-animation-direction: alternate;
+}
+
+.deux {
+    -webkit-animation-delay: .2s;
+    -moz-animation-delay: .2s;
+    -webkit-animation-direction: alternate;
+    margin-top: -6px;
+}
+
+.trois {
+    -webkit-animation-delay: .3s;
+    -moz-animation-delay: .3s;
+    -webkit-animation-direction: alternate;
+    margin-top: -6px;
+}
+
+.mouse {
+    border: 2px solid white;
+    border-radius: 14px;
+    height: 42px;
+    top: 170px;
+    transform: none;
+    width: 24px;
+}
+
+.wheel {
+    background: white;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    display: block;
+    height: 5px;
+    margin: 5px auto;
+    position: relative;
+    width: 2px;
+}
+
+.wheel {
+    -webkit-animation: mouse-wheel 0.6s linear infinite;
+    -moz-animation: mouse-wheel 0.6s linear infinite;
+}
+
+@-webkit-keyframes mouse-wheel {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(6px);
+        -ms-transform: translateY(6px);
+        transform: translateY(6px);
+    }
+}
+
+@-moz-keyframes mouse-wheel {
+    0% {
+        top: 1px;
+    }
+    25% {
+        top: 2px;
+    }
+    50% {
+        top: 3px;
+    }
+    75% {
+        top: 2px;
+    }
+    100% {
+        top: 1px;
+    }
+}
+
+@-webkit-keyframes mouse-scroll {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes mouse-scroll {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes mouse-scroll {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes mouse-scroll {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+//section texte presentation//
+.texte-presentation {
+    h2 {
+        font-size: 1.8rem;
+    }
+    .texte-presentation-element {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img {
+            width: 40%;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+    }
+}
+
+// suggestions//
+.suggestions {
+    h3 {
+        font-size: 2rem;
+        padding-top: 60px;
+    }
+}
+
+.articles-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    article {
+        flex-basis: 49%;
+    }
+}
+
+//séjours //
+.sejours {
+
+    margin-top: 100px;
+    margin-bottom: 70px;
+
+    h1{
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+    h3 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+    .texte-sejours {
+        margin: 40px;
+        p{
+            font-size: 1.4rem;
+        }
+        
+    }
+
+    
+}
+
+
+
+.section-pays {
+    margin: 0 3.2rem;
+    h3 {
+        font-size: 1.8rem;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        li {
+            overflow: show;
+            border-radius: 10px;
+            max-height: 320px;
+            overflow: hidden;
+            margin: 1rem 0;
+            position: relative;
+            flex-basis: 49%;
+            img {
+                margin-top: -20%;
+            }
+        }
+    }
+}
+
+.legend {
+    a {
+        font-size: 1.2rem;
+    }
+}
+
+.brochure {
+    align-items: center;
+    background-color: $blue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 30%;
+    img {
+        height: 150px;
+        padding-bottom: 1rem;
+        width: 150px;
+    }
+    a {
+        display: inline-block;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        color: #fff;
+        padding: 1rem;
+    }
+}
+
+.lien-destinations {
+    font-size: 1.3rem;
+    padding: 1rem 3rem;
+}
+
+// Section Communauté//
+.communaute {
+    margin-top: 60px;
+    h2 {
+        font-size: 2.5rem;
+    }
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    img{
+        margin: 0 50px;
+    }
+}
+
+.infos-communaute {
+    flex-direction: row;
+    padding: 40px 200px;
+}
+
+.infos-communaute article {
+    font-size: 1.1rem;
+    height: 200px;
+    width: 200px;
+    .title {
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+    }
+    a {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+// section témoignages //
+.temoignages {
+    margin: 40px 50px;
+    h3 {
+        font-size: 1.8rem
+    }
+    a {
+        font-size: 1.3rem;
+        padding: 1rem 3rem;
+    }
+}
+
+.infos-temoignages {
+    font-size: 1.1rem;
+}
+
+.elements-temoignages {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.articles-temoignages{
+    flex-basis: 70%;
+}
+.aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 30%;
+    margin-left: 100px;
+}
+
+.joindre {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    .text-joindre {
+        font-size: 1rem;
+        margin-top: 30px;
+        padding: $marge;
+    }
+    .title-joindre {
+        font-size: 1.1rem;
+        top: 20px;
+    }
+    .link-rejoindre {
+        margin-top: 20px;
+        padding-left: 0;
+     
+    }
+}
+
+.concours {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    a {
+        font-size: 1.1rem;
+    }
+    .fa-camera {
+        font-size: 4rem;
+    }
+}
+
+/***********************************
+               FOOTER
+**************************************/
+.footer {
+    align-items: inherit;
+    line-height: 4rem;
+
+}
+
+.elements-footer{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 50px;
+
+    .footer-logo {   
+        img{
+            height: 140px;
+            margin: 20px 0 10px 20px;
+            width: 180px;
+        }
+       
+    }
+}
+
+.menu1 {
+    align-items: flex-start;
+}
+
+.footer-logo {   
+    height: 140px;
+    margin: 20px 0 10px;
+
+    width: 180px;
+}
+
+.menu2 {
+    align-items: flex-end;
+    
+    .reseaux-sociaux-footer {
+        img {
+            height: 35px;
+            width: 35px;
+        }
+    }
+}
+
+
+.icones-paiements {
+    i {
+        font-size: 3rem;
+    }
+}
+
+.ecotourisme {
+    margin-left: 50px;
+    img {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+
+.copyright{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
