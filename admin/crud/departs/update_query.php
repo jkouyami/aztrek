@@ -1,0 +1,19 @@
+<?php
+require_once '../../security.php';
+require_once '../../../model/database.php';
+
+$id = $_POST["id"];
+$date_debut = $_POST["date_debut"];
+$prix = $_POST["prix"];
+$nb_places = $_POST["nb_places"];
+
+
+
+
+//Enregistrement en base de données
+updateDepart($id, $date_debut, $prix, $nb_places);
+
+
+//Redirection vers la liste
+header("Location: index.php");
+

@@ -3,11 +3,12 @@ require_once '../../security.php';
 require_once '../../../model/database.php';
 
 $titre = $_POST["titre"];
-$date_debut = $_POST["date_debut"];
-$date_fin = $_POST["date_fin"];
-$prix = $_POST["prix"];
-$description = $_POST["description"];
-$categorie_id = $_POST["categorie_id"];
+$nb_jours = $_POST["nb_jours"];
+$difficulte = $_POST["difficulte"];
+$description_longue = $_POST["description_longue"];
+$description_courte = $_POST["description_courte"];
+$itineraire = $_POST["itineraire"];
+$pays_id = $_POST["pays_id"];
 
 
 //Upload de l'image
@@ -17,7 +18,7 @@ $tmp = $_FILES["image"] ["tmp_name"];
 move_uploaded_file($tmp, "../../../uploads/" . $image);
 
 //Enregistrement en base de données
-insertProjet( $titre, $image, $date_debut, $date_fin, $prix, $description, $categorie_id);
+insertSejour( $titre, $nb_jours, $difficulte, $image, $description_longue, $description_courte, $itineraire, $pays_id);
 
 
 //Redirection vers la liste

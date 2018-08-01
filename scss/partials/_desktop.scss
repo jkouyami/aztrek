@@ -62,6 +62,15 @@
     }
 }
 
+ul.inline-list {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul.inline-list li {
+    display: inline-block;
+}
+
 .compte {
     background-color: #fff;
     border-radius: 10px;

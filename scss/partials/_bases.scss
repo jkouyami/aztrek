@@ -21,6 +21,14 @@ body {
     padding: 0 $marge;
 }
 
+main {
+    margin-top: 170px;
+}
+
+main.homepage {
+    margin-top: 0;
+}
+
 h1,
 h2,
 h3 {

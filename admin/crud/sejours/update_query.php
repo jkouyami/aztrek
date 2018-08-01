@@ -2,19 +2,19 @@
 require_once '../../security.php';
 require_once '../../../model/database.php';
 
-$id = $_POST["id"];
 $titre = $_POST["titre"];
-$date_debut = $_POST["date_debut"];
-$date_fin = $_POST["date_fin"];
-$prix = $_POST["prix"];
-$description = $_POST["description"];
-$categorie_id = $_POST["categorie_id"];
+$nb_jours = $_POST["nb_jours"];
+$difficulte = $_POST["difficulte"];
+$description_longue = $_POST["description_longue"];
+$description_courte = $_POST["description_courte"];
+$itineraire = $_POST["itineraire"];
+$pays_id = $_POST["pays_id"];
 
 
 //Upload de l'image
 if ($_FILES["image"]["error"] == UPLOAD_ERR_NO_FILE) {
-     $projet = getOneEntity("projet", $id);
-    $image = $projet["image"];
+     $sejour = getOneEntity("sejour", $id);
+    $image = $sejour["image"];
 } else {
     $image = $_FILES["image"]["name"];
     $tmp = $_FILES["image"]["tmp_name"];
@@ -26,7 +26,7 @@ if ($_FILES["image"]["error"] == UPLOAD_ERR_NO_FILE) {
 move_uploaded_file($tmp, "../../../uploads/" . $image);
 
 //Enregistrement en base de données
-updateProjet($id, $titre, $image, $date_debut, $date_fin, $prix, $description, $categorie_id);
+updateProjet( $titre, $nb_jours, $difficulte, $image, $description_longue, $description_courte, $itineraire, $pays_id);
 
 
 //Redirection vers la liste

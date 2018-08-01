@@ -16,6 +16,12 @@ body {
   margin: 0 auto;
   padding: 0 15px; }
 
+main {
+  margin-top: 170px; }
+
+main.homepage {
+  margin-top: 0; }
+
 h1,
 h2,
 h3 {
@@ -834,6 +840,13 @@ h3 {
   .brochure-header .lien-brochure-header {
     display: inline-block;
     color: #fff; }
+
+  ul.inline-list {
+    padding: 0;
+    list-style-type: none; }
+
+  ul.inline-list li {
+    display: inline-block; }
 
   .compte {
     background-color: #fff;

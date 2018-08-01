@@ -1,9 +1,5 @@
-//Pour configurer la base de données/variables
-
-
-
-
 <?php
+//Pour configurer la base de données/variables
 
 require_once __DIR__ . '/../config/parameters.php';
 
