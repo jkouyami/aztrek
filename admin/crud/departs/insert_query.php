@@ -10,7 +10,7 @@ $sejour_id = $_POST["sejour_id"];
 
 
 //Enregistrement en base de données
-insertDepart( $date_debut, $prix, $nb_places, $sejour_id);
+insertDepart($date_debut, $prix, $nb_places, $sejour_id);
 
 //Redirection vers la liste
 header("Location: index.php");

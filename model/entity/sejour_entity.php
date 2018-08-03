@@ -15,7 +15,7 @@ function getAllSejours(int $limit = 999): array {
             WHERE depart.date_debut > NOW() OR depart.date_debut IS NULL
             GROUP BY sejour.id
             ORDER BY RAND()
-            LIMIT :limit";           
+            LIMIT :limit";
 
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":limit", $limit);
@@ -23,8 +23,6 @@ function getAllSejours(int $limit = 999): array {
 
     return $stmt->fetchAll();
 }
-
-
 
 function getAllSejoursByPays(int $id): array {
     global $connexion;
@@ -34,7 +32,7 @@ function getAllSejoursByPays(int $id): array {
             pays.nom AS pays
             FROM sejour
             INNER JOIN pays ON pays.id = sejour.pays_id
-            WHERE pays.id = :id";           
+            WHERE pays.id = :id";
 
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":id", $id);
@@ -42,8 +40,6 @@ function getAllSejoursByPays(int $id): array {
 
     return $stmt->fetchAll();
 }
-
-
 
 function getSejour(int $id): array {
     global $connexion;
@@ -62,12 +58,12 @@ INNER JOIN pays ON pays.id = sejour.pays_id";
     return $stmt->fetch();
 }
 
-function insertSejour(string $titre, string $nb_jours, string $difficulte, string $image, string $description_longue, string $description_courte,string $itineraire, int $pays_id): int{
+function insertSejour(string $titre, string $nb_jours, string $difficulte, string $image, string $description_longue, string $description_courte, string $itineraire, int $pays_id): int {
     /* @var $connexion PDO */
     global $connexion;
-    
+
     $query = "INSERT INTO sejour (titre, nb_jours, difficulte, image, description_longue, description_courte, itineraire, pays_id) VALUES (:titre, :nb_jours, :difficulte, :image, :description_longue, :description_courte, :itineraire, :pays_id)";
-    
+
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":titre", $titre);
     $stmt->bindParam(":nb_jours", $nb_jours);
@@ -78,21 +74,17 @@ function insertSejour(string $titre, string $nb_jours, string $difficulte, strin
     $stmt->bindParam(":itineraire", $itineraire);
     $stmt->bindParam(":pays_id", $pays_id);
     $stmt->execute();
-    
+
     return $connexion->lastInsertId();
-    
-    
 }
 
-
-
-function updateSejour(string $titre, string $nb_jours, string $difficulte, string $image, string $description_longue, string $description_courte,string $itineraire, int $pays_id): int{
+function updateSejour(int $id, string $titre, string $nb_jours, string $difficulte, string $image, string $description_longue, string $description_courte, string $itineraire, int $pays_id): int {
     /* @var $connexion PDO */
     global $connexion;
-    
-     $query = "UPDATE sejour
+
+    $query = "UPDATE sejour
                 SET titre = :titre,
-                    nb-jours = :nb-jours,
+                    nb_jours = :nb_jours,
                     difficulte = :difficulte,
                     image = :image,
                     description_longue = :description_longue,
@@ -101,10 +93,11 @@ function updateSejour(string $titre, string $nb_jours, string $difficulte, strin
                     pays_id = :pays_id
                 WHERE id = :id
             ";
-    
+
     $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":id", $id);
     $stmt->bindParam(":titre", $titre);
-    $stmt->bindParam(":nb-jours", $nb-jours);
+    $stmt->bindParam(":nb_jours", $nb_jours);
     $stmt->bindParam(":difficulte", $difficulte);
     $stmt->bindParam(":image", $image);
     $stmt->bindParam(":description_longue", $description_longue);
@@ -112,12 +105,9 @@ function updateSejour(string $titre, string $nb_jours, string $difficulte, strin
     $stmt->bindParam(":itineraire", $itineraire);
     $stmt->bindParam(":pays_id", $pays_id);
     $stmt->execute();
-    
-    return $connexion->lastInsertId();
-    
-    
-}
 
+    return $connexion->lastInsertId();
+}
 
 //Entities: fonctions qui permettent de récupérer des informations dans la base de données. Permet au php et au sql de communiquer ensemble
 

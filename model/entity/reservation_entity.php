@@ -7,14 +7,14 @@ function getAllDepartBySejour(int $id): array {
               utilisateur.nom,
               utilisateur.prenom,
               utilisateur.photo,
-              sejour.date_depart,
+              depart.date_debut,
               reservation.prix,
               reservation.utilisateur_id
           FROM reservation
           INNER JOIN utilisateur
                   ON utilisateur.id = reservation.utilisateur_id
-          WHERE reservation.sejour_id = :id
-          ORDER BY sejour.date_depart DESC;";
+         
+          ORDER BY depart.date_debut DESC;";
 
   $stmt = $connexion->prepare($query);
   $stmt->bindParam(":id", $id);
@@ -23,12 +23,32 @@ function getAllDepartBySejour(int $id): array {
   return $stmt->fetchAll();
 }
 
+function getAllReservation(): array {
+  global $connexion;
 
-function insertReservation(float $nb_voyageurs, int $valide, string $depart_id, string $utilisateur_id): int {
+  $query = "SELECT
+               reservation.*,
+               depart.date_debut,
+               CONCAT(utilisateur.nom, ' ', utilisateur.prenom) AS utilisateur,
+                sejour.titre AS sejour,
+                pays.nom AS pays
+          FROM reservation
+          INNER JOIN utilisateur ON utilisateur.id = reservation.utilisateur_id
+          INNER JOIN depart ON depart.id = reservation.depart_id
+          INNER JOIN sejour ON sejour.id = depart.sejour_id
+          INNER JOIN pays ON pays.id = sejour.pays_id
+          ORDER BY depart.date_debut DESC;";
+
+  $stmt = $connexion->prepare($query);
+  $stmt->execute();
+
+  return $stmt->fetchAll();
+}
+function insertReservation(int $nb_voyageurs, string $valide, string $depart_id, string $utilisateur_id): int {
   /* @var $connexion PDO */
   global $connexion;
  
-  $query ="INSERT INTO reservation (nb_voyageurs, valide, depart_id, utilisateur_id) VALUES (:nb_voyageurs, NOW(), :valide, :depart_id, :utilisateur_id);";
+  $query ="INSERT INTO reservation (nb_voyageurs, valide, depart_id, utilisateur_id) VALUES (:nb_voyageurs, 0, :depart_id, :utilisateur_id);";
  
   $stmt = $connexion->prepare($query);
   $stmt->bindParam(":nb_voyageurs", $nb_voyageurs);
@@ -38,4 +58,22 @@ function insertReservation(float $nb_voyageurs, int $valide, string $depart_id, 
   $stmt->execute();
  
   return $connexion->lastInsertId();
+}
+
+function updateReservation(int $id, string $valide): int{
+    /* @var $connexion PDO */
+    global $connexion;
+    
+     $query = "UPDATE reservation
+                SET valide = :valide
+                WHERE id = :id";
+    
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":valide", $valide);
+    $stmt->execute();
+    
+    return $connexion->lastInsertId();
+    
+    
 }

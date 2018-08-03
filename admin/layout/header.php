@@ -46,24 +46,8 @@ require_once __DIR__ . '/../security.php'; ?>
                             <?php display_nav_item(SITE_ADMIN. "crud/pays/", "pays", "fa-globe"); ?>
                             <?php display_nav_item(SITE_ADMIN. "crud/sejours/", "sejour", "fa-plane"); ?>
                             <?php display_nav_item(SITE_ADMIN. "crud/departs/", "depart", "fa-calendar"); ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="shopping-cart"></span>
-                                    Products
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="users"></span>
-                                    Customers
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Reports
-                                </a>
-                            </li>
+                            <?php display_nav_item(SITE_ADMIN. "crud/reservations/", "reservation", "fa-calendar"); ?>
+                            
                         </ul>
 
                     </div>

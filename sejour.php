@@ -27,33 +27,40 @@ get_header($sejour["titre"]);
         <p>Itinéraire :<br> <?php echo $sejour["itineraire"]; ?></p>
 
         <?php foreach ($list_departs as $depart) : ?>
-        <article>
-            <p>Date de départ: <?php echo $depart["date_debut"]; ?></p>
-            <p>Prix: <?php echo $depart["prix"]; ?>€</p>
-            <em><?php echo $depart["nb_places"]; ?> places</em>
-              
-            </article>
-        <?php endforeach; ?>
-        
-       <aside class="list-users">
-        <?php if (!empty($utilisateur)) : ?>
-            <form action="insert_reservation.php" method="post">
-                Réserver
-                <input type="number" name="nb_voyageurs"> personnes
-                <input type="hidden" name="sejour_id" value="<?php echo $id; ?>">
-                <input type="submit">
-            </form>
-        <?php endif; ?>
-        <?php foreach ($list_participations as $participation) : ?>
             <article>
-                <img src="<?php echo get_avatar($participation["photo"]); ?>" alt="">
-                <div>
-                    <a href="user.php?id=<?php echo $participation["utilisateur_id"]; ?>"><?php echo $participation["nom"] . " " . $participation["prenom"]; ?></a>
-                    <em><?php echo $participation["montant"]; ?> €</em>
-                </div>
+                <p>Date de départ: <?php echo $depart["date_debut"]; ?></p>
+                <p>Prix: <?php echo $depart["prix"]; ?>€</p>
+                <em><?php echo $depart["places_restantes"]; ?> / <?php echo $depart["nb_places"]; ?> places</em>
             </article>
         <?php endforeach; ?>
-    </aside>
+        <br>
+        <br>
+
+        <aside class="list-users">
+            <?php if (!empty($utilisateur)) : ?>
+                <form action="insert_reservation.php" method="post">
+                    <strong>Réservation:</strong>
+                    <br>
+                    <input type="hidden" name="sejour_id" value="<?php echo $sejour["id"]; ?>">
+                    <select name="depart_id">
+                        <?php foreach ($list_departs as $depart) : ?>
+                            <option value="<?php echo $depart["id"]; ?>">
+                                <?php echo $depart["date_debut"]; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <br>
+                    <br>
+                    Nombre de voyageurs <input type="number" name="nb_voyageurs">
+                    <br>
+                    <br>
+                    <a href=""><input type="submit" value="Réserver"></a>
+                    <br>
+                    <br>
+                </form>
+            <?php endif; ?>
+
+        </aside>
 
 
 

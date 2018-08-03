@@ -5,10 +5,10 @@ require_once 'model/database.php';
 $utilisateur = current_user();
 
 $nb_voyageurs = $_POST["nb_voyageurs"];
-$valide = $_POST["valide"];
 $depart_id = $_POST["depart_id"];
-$utilisateur_id = $utilisateur_id["id"];
+$sejour_id = $_POST["sejour_id"];
+$utilisateur_id = $utilisateur["id"];
 
-insertReservation($nb_voyageurs, $valide, $depart_id, $utilisateur_id);
+insertReservation($nb_voyageurs, $depart_id, $utilisateur_id);
 
-header("Location: reservation.php?id=" . $sejour_id);
+header("Location: sejour.php?id=" . $sejour_id);

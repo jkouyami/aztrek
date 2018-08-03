@@ -2,6 +2,7 @@
 require_once '../../../model/database.php';
 
 $list_sejours = getAllEntities("sejour");
+$list_departs = getAllDeparts("depart");
 
 require_once '../../layout/header.php';
 ?>

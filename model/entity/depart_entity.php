@@ -22,9 +22,13 @@ function getAllDeparts(int $limit = 999): array {
 function getAllDepartsBySejour(int $id): array {
     global $connexion;
 
-    $query = "SELECT *
+    $query = "SELECT
+            depart.*,
+            depart.nb_places - IFNULL(SUM(IF(reservation.valide, reservation.nb_voyageurs, 0)), 0) AS places_restantes
         FROM depart
+        LEFT JOIN reservation ON reservation.depart_id = depart.id
         WHERE depart.sejour_id = :id
+        GROUP BY depart.id
         ";           
 
     $stmt = $connexion->prepare($query);
@@ -52,13 +56,14 @@ INNER JOIN pays ON pays.id = sejour.pays_id";
     return $stmt->fetch();
 }
 
-function insertDepart(string $date_debut, string $prix, string $nb_places, int $sejour_id): int{
+function insertDepart(string $id, string $date_debut, string $prix, string $nb_places, int $sejour_id): int{
     /* @var $connexion PDO */
     global $connexion;
     
     $query = "INSERT INTO depart (date_debut, prix, nb_places, sejour_id) VALUES (:date_debut, :prix, :nb_places, :sejour_id)";
     
     $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":id", $id);
     $stmt->bindParam(":date_debut", $date_debut);
     $stmt->bindParam(":prix", $prix);
     $stmt->bindParam(":nb_places", $nb_places);
@@ -77,13 +82,12 @@ function updateDepart(string $id, string $date_debut, string $prix, string $nb_p
     
  $query = "UPDATE depart
                 SET 
-                
                     date_debut = :date_debut,
                     prix = :prix,
-                    nb_places = :nb_places,
+                    nb_places = :nb_places
                     
                 WHERE id = :id
-            ";
+                ";
     
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":id", $id);

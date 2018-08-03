@@ -4,6 +4,8 @@ require_once '../../../model/database.php';
 $id = $_GET["id"];
 $depart = getOneEntity("depart", $id);
 
+$list_sejours = getAllEntities("sejour");
+
 require_once '../../layout/header.php';
 ?>
 
